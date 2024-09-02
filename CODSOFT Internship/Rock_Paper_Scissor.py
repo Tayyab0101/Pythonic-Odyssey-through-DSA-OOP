@@ -2,46 +2,52 @@ import random
 import tkinter as tk
 from tkinter import messagebox
 
-# Function to play a single round of the game
 def play_round(user_choice):
-    global num_rds, user_score, computer_score
-    
+    """
+    Play a single round of the game.
+
+    Args:
+        user_choice (str): The user's choice (Rock, Paper, Scissors).
+    """
+    global num_rounds, user_score, computer_score
+
     game_emojis = ["👊", "✌️", "✋"]
     choices = {"Rock": 0, "Scissors": 1, "Paper": 2}
-    user_choice = choices[user_choice]
-    computer_choice = random.randrange(0, 3)
+    user_choice_index = choices[user_choice]
+    computer_choice_index = random.randrange(0, 3)
+
     # Check the winner
-    result = ""
-    if user_choice == computer_choice:
+    if user_choice_index == computer_choice_index:
         result = "It's a tie"
-    elif (user_choice == 0 and computer_choice == 1) or \
-         (user_choice == 1 and computer_choice == 2) or \
-         (user_choice == 2 and computer_choice == 0):
+    elif (user_choice_index == 0 and computer_choice_index == 1) or \
+         (user_choice_index == 1 and computer_choice_index == 2) or \
+         (user_choice_index == 2 and computer_choice_index == 0):
         result = "You won."
         user_score += 1
     else:
         result = "You lost"
         computer_score += 1
-    
+
     # Update labels with choices and result
-    user_label.config(text=f"Your choice: {game_emojis[user_choice]}")
-    computer_label.config(text=f"Computer's choice: {game_emojis[computer_choice]}")
+    user_label.config(text=f"Your choice: {game_emojis[user_choice_index]}")
+    computer_label.config(text=f"Computer's choice: {game_emojis[computer_choice_index]}")
     result_label.config(text=result)
-    
+
     # Update scores
-    num_rds += 1
+    num_rounds += 1
     player_score_label.config(text=f"Player Score: {user_score}")
     computer_score_label.config(text=f"Computer Score: {computer_score}")
-    
+
     # Ask if the user wants to play another round
     if messagebox.askyesno("Play Again?", "Do you want to play another round?"):
         pass
     else:
-        # End the game if the user chooses not to play another round
         end_game()
 
-# Function to end the game and display the final scores
 def end_game():
+    """
+    End the game and display the final scores.
+    """
     messagebox.showinfo("Game Over", f"Game Over!\n\nPlayer Score: {user_score}\nComputer Score: {computer_score}")
     root.destroy()
 
@@ -50,7 +56,7 @@ root = tk.Tk()
 root.title("Rock Paper Scissors Game")
 
 # Initialize variables
-num_rds = 0
+num_rounds = 0
 user_score = 0
 computer_score = 0
 
