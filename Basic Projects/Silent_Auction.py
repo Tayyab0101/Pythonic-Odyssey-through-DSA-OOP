@@ -1,11 +1,13 @@
 import os
 
 def clear_screen():
+    """Clears the terminal screen."""
     os.system("cls")
-    
-print("*********Welcome to Silent Auction***********")
+
+print("********* Welcome to Silent Auction ***********")
 
 def highest_bidder():
+    """Finds the highest bidder and displays the result."""
     bidding_data = {}
     while True:
         name = input("Enter your name: ")
@@ -29,9 +31,10 @@ def highest_bidder():
             highest_bid = data["Bid"]
             highest_bidder_name = name
             company_name = data["Company"]
+    
     if company_name:
         print(f"The highest bidder is {highest_bidder_name} from company {company_name} with a bid of Rs. {highest_bid}")
     else:
         print(f"The highest bidder is {highest_bidder_name}, local, with a bid of Rs. {highest_bid}")
-        
+
 highest_bidder()
