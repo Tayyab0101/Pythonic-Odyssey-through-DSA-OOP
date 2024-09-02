@@ -1,19 +1,28 @@
-print("Welcome to password genratoe.")
+"""
+Password Generator Module.
+
+This module generates a random password based on user input for the number of
+alphabets, numbers, and special characters.
+"""
+
 import string
 import random
-alphabets = int(input(f"Enet no of alphabets: "))
-numbers = int(input(f"Enter no of numbers : "))
-special = int(input(f"Enter spec chars: "))
 
-alphs = string.ascii_letters
-numbs = string.digits
-spec = "!@#$%^&*()_+-=[]{}|;:',.<>/?"
+print("Welcome to password generator.")
+
+alphabets = int(input("Enter number of alphabets: "))
+numbers = int(input("Enter number of numbers: "))
+special = int(input("Enter number of special characters: "))
+
+ALPHABETS = string.ascii_letters
+NUMBERS = string.digits
+SPECIAL_CHARACTERS = "!@#$%^&*()_+-=[]{}|;:',.<>/?"
 
 password = ''
 
-password += ''. join(random.choice(alphs) for any in range(1, alphabets+1))
-password += ''.join(random.choice(numbs) for no in range(1, numbers+1))
-password += ''.join(random.choice(spec) for spe in range (1, special+1))
+password += ''.join(random.choice(ALPHABETS) for _ in range(1, alphabets+1))
+password += ''.join(random.choice(NUMBERS) for _ in range(1, numbers+1))
+password += ''.join(random.choice(SPECIAL_CHARACTERS) for _ in range(1, special+1))
 
 pass_list = list(password)
 random.shuffle(pass_list)
