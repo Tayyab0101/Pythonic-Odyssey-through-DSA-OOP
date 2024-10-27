@@ -1,7 +1,7 @@
 import random
 
 print('''
- 
+
     _     _  _  _   __   _              _  _  _
    / `/ //_`/_`/_`  //_//_`  /|// //|,//_)/_`/_/
   /_;/_//_,._/._/  // //_,  / |/_//  //_)/_,/ \_
@@ -16,7 +16,7 @@ level = input("Choose your difficulty level (Hard or Easy): ").lower()
 def guess():
     attempts = 5 if level == "hard" else 10
     print(f"You have only {attempts} attempts to guess.")
-    
+
     for i in range(1, attempts + 1):
         while True:
             guess = input("Make a guess: ")
@@ -28,9 +28,9 @@ def guess():
                     print("Guess out of range. Please enter a number between 1 and 50.")
             else:
                 print("Invalid input. Please enter a number.")
-        
+
         diff = guess - guess1
-        
+
         if guess == guess1:
             print("Correct. You won")
             break
@@ -42,7 +42,7 @@ def guess():
             print("Somewhat Near.")
         elif diff > 0:
             print("Almost there.")
-        
+
         print(f"You are left with {attempts - i} guesses.")
     else:
         print("You are out of guesses. The correct number was:", guess1)
