@@ -25,9 +25,9 @@ p3 = Point(5, 10)
 points = [p1, p2, p3]
 
 # Create a Shape object with the list of points
-shaper = Shape(points)
+shape1 = Shape(points)
 
 # Print the Shape object
-print(shaper)
+print(shape1)
 
 
